@@ -8,12 +8,24 @@
 
 import SafariServices
 
+enum Messages: Int {
+    case OpenWebm = 0
+    
+    init?(string: String) {
+        guard let number = Int(string) else { return nil }
+        self.init(rawValue: number)
+    }
+}
+
 class SafariExtensionHandler: SFSafariExtensionHandler {
     
     override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String : Any]?) {
-        // This method will be called when a content script provided by your extension calls safari.extension.dispatchMessage("message").
-        page.getPropertiesWithCompletionHandler { properties in
-            NSLog("The extension received a message (\(messageName)) from a script injected into (\(String(describing: properties?.url))) with userInfo (\(userInfo ?? [:]))")
+        guard let message = Messages(string: messageName) else { return }
+        
+        switch message {
+        case .OpenWebm:
+            guard let url = userInfo?["url"] as? String else { return }
+            launchPlayer(withURL: url)
         }
     }
     
@@ -30,5 +42,12 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     override func popoverViewController() -> SFSafariExtensionViewController {
         return SafariExtensionViewController.shared
     }
-
+    
+    func launchPlayer(withURL url: String) {
+        guard let escapedURL = url.addingPercentEncoding(withAllowedCharacters: .alphanumerics),
+            let url = URL(string: "ribbon://weblink?url=\(escapedURL)") else {
+                return
+        }
+        NSWorkspace.shared.open(url)
+    }
 }
