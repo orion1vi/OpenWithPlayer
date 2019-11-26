@@ -12,7 +12,7 @@
 		E8BC365A238DD77F003EEA8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8BC3658238DD77F003EEA8D /* Main.storyboard */; };
 		E8BC365C238DD77F003EEA8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BC365B238DD77F003EEA8D /* ViewController.swift */; };
 		E8BC365E238DD77F003EEA8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8BC365D238DD77F003EEA8D /* Assets.xcassets */; };
-		E8BC3665238DD77F003EEA8D /* OpenWithPlayer Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E8BC3664238DD77F003EEA8D /* OpenWithPlayer Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		E8BC3665238DD77F003EEA8D /* Open With Player Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = E8BC3664238DD77F003EEA8D /* Open With Player Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		E8BC366A238DD77F003EEA8D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8BC3669238DD77F003EEA8D /* Cocoa.framework */; };
 		E8BC366D238DD77F003EEA8D /* SafariExtensionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BC366C238DD77F003EEA8D /* SafariExtensionHandler.swift */; };
 		E8BC366F238DD77F003EEA8D /* SafariExtensionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BC366E238DD77F003EEA8D /* SafariExtensionViewController.swift */; };
@@ -38,7 +38,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				E8BC3665238DD77F003EEA8D /* OpenWithPlayer Extension.appex in Embed App Extensions */,
+				E8BC3665238DD77F003EEA8D /* Open With Player Extension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -46,14 +46,14 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		E8BC3651238DD77F003EEA8D /* OpenWithPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWithPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8BC3651238DD77F003EEA8D /* Open With Player.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Open With Player.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BC3654238DD77F003EEA8D /* OpenWithPlayer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenWithPlayer.entitlements; sourceTree = "<group>"; };
 		E8BC3656238DD77F003EEA8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8BC3659238DD77F003EEA8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E8BC365B238DD77F003EEA8D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E8BC365D238DD77F003EEA8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E8BC365F238DD77F003EEA8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E8BC3664238DD77F003EEA8D /* OpenWithPlayer Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "OpenWithPlayer Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8BC3664238DD77F003EEA8D /* Open With Player Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Open With Player Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8BC3669238DD77F003EEA8D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		E8BC366C238DD77F003EEA8D /* SafariExtensionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionHandler.swift; sourceTree = "<group>"; };
 		E8BC366E238DD77F003EEA8D /* SafariExtensionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariExtensionViewController.swift; sourceTree = "<group>"; };
@@ -62,6 +62,7 @@
 		E8BC3674238DD77F003EEA8D /* script.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = script.js; sourceTree = "<group>"; };
 		E8BC3676238DD780003EEA8D /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
 		E8BC3678238DD780003EEA8D /* OpenWithPlayer_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenWithPlayer_Extension.entitlements; sourceTree = "<group>"; };
+		E8BC3682238DD798003EEA8D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +87,7 @@
 		E8BC3648238DD77F003EEA8D = {
 			isa = PBXGroup;
 			children = (
+				E8BC3682238DD798003EEA8D /* Config.xcconfig */,
 				E8BC3653238DD77F003EEA8D /* OpenWithPlayer */,
 				E8BC366B238DD77F003EEA8D /* OpenWithPlayer Extension */,
 				E8BC3668238DD77F003EEA8D /* Frameworks */,
@@ -96,8 +98,8 @@
 		E8BC3652238DD77F003EEA8D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E8BC3651238DD77F003EEA8D /* OpenWithPlayer.app */,
-				E8BC3664238DD77F003EEA8D /* OpenWithPlayer Extension.appex */,
+				E8BC3651238DD77F003EEA8D /* Open With Player.app */,
+				E8BC3664238DD77F003EEA8D /* Open With Player Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -156,7 +158,7 @@
 			);
 			name = OpenWithPlayer;
 			productName = OpenWithPlayer;
-			productReference = E8BC3651238DD77F003EEA8D /* OpenWithPlayer.app */;
+			productReference = E8BC3651238DD77F003EEA8D /* Open With Player.app */;
 			productType = "com.apple.product-type.application";
 		};
 		E8BC3663238DD77F003EEA8D /* OpenWithPlayer Extension */ = {
@@ -173,7 +175,7 @@
 			);
 			name = "OpenWithPlayer Extension";
 			productName = "OpenWithPlayer Extension";
-			productReference = E8BC3664238DD77F003EEA8D /* OpenWithPlayer Extension.appex */;
+			productReference = E8BC3664238DD77F003EEA8D /* Open With Player Extension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
@@ -287,6 +289,7 @@
 /* Begin XCBuildConfiguration section */
 		E8BC3679238DD780003EEA8D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8BC3682238DD798003EEA8D /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -347,6 +350,7 @@
 		};
 		E8BC367A238DD780003EEA8D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8BC3682238DD798003EEA8D /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -412,7 +416,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.orion1vi.OpenWithPlayer-Extension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(PRODUCT_NAME) Extension";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -432,7 +436,7 @@
 					"@executable_path/../../../../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "io.orion1vi.OpenWithPlayer-Extension";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(PRODUCT_NAME) Extension";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 5.0;
 			};
@@ -454,7 +458,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.orion1vi.OpenWithPlayer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(PRODUCT_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -475,7 +479,7 @@
 					"@executable_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = io.orion1vi.OpenWithPlayer;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "$(PRODUCT_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;

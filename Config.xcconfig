@@ -1,0 +1,12 @@
+//
+//  Config.xcconfig
+//  OpenWithPlayer
+//
+//  Created by Vilius on 26/11/2019.
+//  Copyright © 2019 Vilius. All rights reserved.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+PRODUCT_NAME = Open With Player
