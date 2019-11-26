@@ -8,8 +8,18 @@
 
 import SafariServices
 
-enum Messages: Int {
+enum Message: Int {
     case OpenWebm = 0
+    
+    init?(string: String) {
+        guard let number = Int(string) else { return nil }
+        self.init(rawValue: number)
+    }
+}
+
+enum Command: Int {
+    case OpenCurrentPageLink = 0
+    case OpenSelectedLink
     
     init?(string: String) {
         guard let number = Int(string) else { return nil }
@@ -19,19 +29,56 @@ enum Messages: Int {
 
 class SafariExtensionHandler: SFSafariExtensionHandler {
     
+    func openURL(from userInfo: [String : Any]?) {
+        guard let url = userInfo?["url"] as? String else { return }
+        launchPlayer(withURL: url)
+    }
+    
     override func messageReceived(withName messageName: String, from page: SFSafariPage, userInfo: [String : Any]?) {
-        guard let message = Messages(string: messageName) else { return }
+        guard let message = Message(string: messageName) else { return }
         
         switch message {
         case .OpenWebm:
-            guard let url = userInfo?["url"] as? String else { return }
-            launchPlayer(withURL: url)
+            openURL(from: userInfo)
+        }
+    }
+    
+    override func validateContextMenuItem(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil, validationHandler: @escaping (Bool, String?) -> Void) {
+        guard let command = Command(string: command) else { return }
+        
+        switch command {
+        case .OpenCurrentPageLink:
+            validationHandler(false, nil)
+        case .OpenSelectedLink:
+            validationHandler(userInfo?["url"] as? String == nil, nil)
+        }
+    }
+    
+    override func contextMenuItemSelected(withCommand command: String, in page: SFSafariPage, userInfo: [String : Any]? = nil) {
+        guard let command = Command(string: command) else { return }
+        
+        switch command {
+        case .OpenCurrentPageLink:
+            page.getPropertiesWithCompletionHandler {
+                $0?.url.flatMap {
+                    self.launchPlayer(withURL: $0.absoluteString)
+                }
+            }
+        case .OpenSelectedLink:
+            openURL(from: userInfo)
         }
     }
     
     override func toolbarItemClicked(in window: SFSafariWindow) {
-        // This method will be called when your toolbar item is clicked.
-        NSLog("The extension's toolbar item was clicked")
+        window.getActiveTab {
+            $0?.getActivePage {
+                $0?.getPropertiesWithCompletionHandler {
+                    $0?.url.flatMap {
+                        self.launchPlayer(withURL: $0.absoluteString)
+                    }
+                }
+            }
+        }
     }
     
     override func validateToolbarItem(in window: SFSafariWindow, validationHandler: @escaping ((Bool, String) -> Void)) {
