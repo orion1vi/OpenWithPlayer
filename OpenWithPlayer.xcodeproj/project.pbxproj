@@ -19,6 +19,8 @@
 		E8BC3672238DD77F003EEA8D /* SafariExtensionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8BC3670238DD77F003EEA8D /* SafariExtensionViewController.xib */; };
 		E8BC3675238DD780003EEA8D /* script.js in Resources */ = {isa = PBXBuildFile; fileRef = E8BC3674238DD77F003EEA8D /* script.js */; };
 		E8BC3677238DD780003EEA8D /* ToolbarItemIcon.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E8BC3676238DD780003EEA8D /* ToolbarItemIcon.pdf */; };
+		E8BC368A238E06F0003EEA8D /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BC3689238E06F0003EEA8D /* Preferences.swift */; };
+		E8BC368B238E06F0003EEA8D /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8BC3689238E06F0003EEA8D /* Preferences.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +65,7 @@
 		E8BC3676238DD780003EEA8D /* ToolbarItemIcon.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = ToolbarItemIcon.pdf; sourceTree = "<group>"; };
 		E8BC3678238DD780003EEA8D /* OpenWithPlayer_Extension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = OpenWithPlayer_Extension.entitlements; sourceTree = "<group>"; };
 		E8BC3682238DD798003EEA8D /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		E8BC3689238E06F0003EEA8D /* Preferences.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				E8BC3682238DD798003EEA8D /* Config.xcconfig */,
+				E8BC3689238E06F0003EEA8D /* Preferences.swift */,
 				E8BC3653238DD77F003EEA8D /* OpenWithPlayer */,
 				E8BC366B238DD77F003EEA8D /* OpenWithPlayer Extension */,
 				E8BC3668238DD77F003EEA8D /* Frameworks */,
@@ -245,6 +249,7 @@
 			files = (
 				E8BC365C238DD77F003EEA8D /* ViewController.swift in Sources */,
 				E8BC3657238DD77F003EEA8D /* AppDelegate.swift in Sources */,
+				E8BC368A238E06F0003EEA8D /* Preferences.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +259,7 @@
 			files = (
 				E8BC366F238DD77F003EEA8D /* SafariExtensionViewController.swift in Sources */,
 				E8BC366D238DD77F003EEA8D /* SafariExtensionHandler.swift in Sources */,
+				E8BC368B238E06F0003EEA8D /* Preferences.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

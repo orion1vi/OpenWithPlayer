@@ -29,7 +29,11 @@ enum Command: Int {
 
 class SafariExtensionHandler: SFSafariExtensionHandler {
     
-    func openURL(from userInfo: [String : Any]?) {
+    override init() {
+        Preferences.registerUserDefaults()
+    }
+    
+    private func openURL(from userInfo: [String : Any]?) {
         guard let url = userInfo?["url"] as? String else { return }
         launchPlayer(withURL: url)
     }
@@ -39,7 +43,9 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         
         switch message {
         case .OpenWebm:
-            openURL(from: userInfo)
+            if Preferences.valueForUserDefault(key: .openEmbeddedWebm){
+                openURL(from: userInfo)
+            }
         }
     }
     
@@ -48,9 +54,9 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         
         switch command {
         case .OpenCurrentPageLink:
-            validationHandler(false, nil)
+            validationHandler(!Preferences.valueForUserDefault(key: .contextMenuOpenCurrentPage), nil)
         case .OpenSelectedLink:
-            validationHandler(userInfo?["url"] as? String == nil, nil)
+            validationHandler(userInfo?["url"] as? String == nil || !Preferences.valueForUserDefault(key: .contextMenuOpenLink), nil)
         }
     }
     
@@ -91,10 +97,25 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     }
     
     func launchPlayer(withURL url: String) {
-        guard let escapedURL = url.addingPercentEncoding(withAllowedCharacters: .alphanumerics),
-            let url = URL(string: "ribbon://weblink?url=\(escapedURL)") else {
-                return
+        guard let escapedURL = url.addingPercentEncoding(withAllowedCharacters: .alphanumerics) else { return }
+        
+        let player: Int = Preferences.valueForUserDefault(key: .externalPlayer)
+
+        var url: URL?
+        
+        switch player {
+        case 0:
+            url = URL(string: "ribbon://weblink?url=\(escapedURL)")
+        case 1:
+            url = URL(string: "mpv://\(escapedURL)")
+        case 2:
+            url = URL(string: "iina://weblink?url=\(escapedURL)&new_window=1")
+        default:
+            return
         }
-        NSWorkspace.shared.open(url)
+        
+        if let url = url {
+            NSWorkspace.shared.open(url)
+        }
     }
 }
