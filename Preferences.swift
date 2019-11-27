@@ -19,6 +19,11 @@ enum Player: Int, CaseIterable {
     case Ribbon
     case mpv
     case IINA
+    
+    init?(key: PreferenceKey) {
+        guard let value = Preferences.groupUserDefaults?.integer(forKey: key.rawValue) else { return nil }
+        self.init(rawValue: value)
+    }
 }
 
 class Preferences {
@@ -36,14 +41,14 @@ class Preferences {
     static func valueForUserDefault<T>(key: PreferenceKey) -> T {
         switch key {
         case .externalPlayer:
-            return groupUserDefaults?.integer(forKey: key.rawValue) as! T
+            return Player(key: .externalPlayer) as! T
         case .openEmbeddedWebm, .contextMenuOpenCurrentPage, .contextMenuOpenLink:
             return groupUserDefaults?.bool(forKey: key.rawValue) as! T
         }
     }
     
     static func registerUserDefaults() {
-        registerUserDefault(key: .externalPlayer, value: 0)
+        registerUserDefault(key: .externalPlayer, value: Player.Ribbon.rawValue)
         registerUserDefault(key: .openEmbeddedWebm, value: true)
         registerUserDefault(key: .contextMenuOpenCurrentPage, value: true)
         registerUserDefault(key: .contextMenuOpenLink, value: true)

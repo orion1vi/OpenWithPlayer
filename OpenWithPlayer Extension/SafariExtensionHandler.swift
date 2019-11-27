@@ -99,19 +99,16 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
     func launchPlayer(withURL url: String) {
         guard let escapedURL = url.addingPercentEncoding(withAllowedCharacters: .alphanumerics) else { return }
         
-        let player: Int = Preferences.valueForUserDefault(key: .externalPlayer)
-
         var url: URL?
         
+        let player: Player = Preferences.valueForUserDefault(key: .externalPlayer)
         switch player {
-        case 0:
+        case .Ribbon:
             url = URL(string: "ribbon://weblink?url=\(escapedURL)")
-        case 1:
+        case .mpv:
             url = URL(string: "mpv://\(escapedURL)")
-        case 2:
+        case .IINA:
             url = URL(string: "iina://weblink?url=\(escapedURL)&new_window=1")
-        default:
-            return
         }
         
         if let url = url {

@@ -32,12 +32,12 @@ class ViewController: NSViewController {
     }
     
     private func updateButtonStates() {
-        let player: Int = Preferences.valueForUserDefault(key: .externalPlayer)!
+        let player: Player = Preferences.valueForUserDefault(key: .externalPlayer)!
         let openWebmState: Bool = Preferences.valueForUserDefault(key: .openEmbeddedWebm)!
         let openCurrentPageState: Bool = Preferences.valueForUserDefault(key: .contextMenuOpenCurrentPage)!
         let openLinkState: Bool = Preferences.valueForUserDefault(key: .contextMenuOpenLink)!
         
-        playerPopUpButton.selectItem(at: player)
+        playerPopUpButton.selectItem(withTitle: "\(player)")
         openWebmButton.state = openWebmState ? .on : .off
         openCurrentPageButton.state = openCurrentPageState ? .on : .off
         openLinkButton.state = openLinkState ? .on : .off
