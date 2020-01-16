@@ -9,7 +9,7 @@
 import SafariServices
 
 enum Message: Int {
-    case OpenWebm = 0
+    case openWebm = 0
     
     init?(string: String) {
         guard let number = Int(string) else { return nil }
@@ -18,8 +18,8 @@ enum Message: Int {
 }
 
 enum Command: Int {
-    case OpenCurrentPageLink = 0
-    case OpenSelectedLink
+    case openCurrentPageLink = 0
+    case openSelectedLink
     
     init?(string: String) {
         guard let number = Int(string) else { return nil }
@@ -42,7 +42,7 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         guard let message = Message(string: messageName) else { return }
         
         switch message {
-        case .OpenWebm:
+        case .openWebm:
             if Preferences.valueForUserDefault(key: .openEmbeddedWebm){
                 openURL(from: userInfo)
             }
@@ -53,9 +53,9 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         guard let command = Command(string: command) else { return }
         
         switch command {
-        case .OpenCurrentPageLink:
+        case .openCurrentPageLink:
             validationHandler(!Preferences.valueForUserDefault(key: .contextMenuOpenCurrentPage), nil)
-        case .OpenSelectedLink:
+        case .openSelectedLink:
             validationHandler(userInfo?["url"] as? String == nil || !Preferences.valueForUserDefault(key: .contextMenuOpenLink), nil)
         }
     }
@@ -64,13 +64,13 @@ class SafariExtensionHandler: SFSafariExtensionHandler {
         guard let command = Command(string: command) else { return }
         
         switch command {
-        case .OpenCurrentPageLink:
+        case .openCurrentPageLink:
             page.getPropertiesWithCompletionHandler {
                 $0?.url.flatMap {
                     self.launchPlayer(withURL: $0.absoluteString)
                 }
             }
-        case .OpenSelectedLink:
+        case .openSelectedLink:
             openURL(from: userInfo)
         }
     }
