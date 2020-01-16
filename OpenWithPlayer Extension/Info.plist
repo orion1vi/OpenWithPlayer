@@ -70,6 +70,6 @@
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2019 Vilius. All rights reserved.</string>
 	<key>NSHumanReadableDescription</key>
-	<string>Open links and WebM files in external player.</string>
+	<string>Open links and WebM files with external player.</string>
 </dict>
 </plist>
